@@ -11,7 +11,27 @@
     <title>image uploader</title>
   </head>
   <body>
-    {{form}}
+    <div class="container"
+     <div class="py-5 text-center bg-secondary text-white">
+      <h1>class="mb-3">upload image</h1>
+      <form action="" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{form}}
+        <input type="submit" class="btn btn-danger"value="upload">
+      </form>
+     </div>
+     <div class="row">
+      {% for x in img %}
+      <div class="card m-2">
+        <img src="{{x.photo.url}}" alt="" class="card-img-top" height="200px">
+        <div class="card-footer">
+          <small clas="text-muted">{{x.date}}</small>
+      </div>
+      {% endfor %}
+  </div>   
+
+
+
    
 
     <!-- Optional JavaScript -->
